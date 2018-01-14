@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2465A7CEB137674BE754AD92 /* Pods_REEQ_HUD.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0DCA6EC92995F781E5A03BC1 /* Pods_REEQ_HUD.framework */; };
 		39F368071FAEB5E70020D3BB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39F368061FAEB5E70020D3BB /* AppDelegate.swift */; };
 		39F368091FAEB5E70020D3BB /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39F368081FAEB5E70020D3BB /* ViewController.swift */; };
 		39F3680C1FAEB5E70020D3BB /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 39F3680A1FAEB5E70020D3BB /* Main.storyboard */; };
@@ -15,6 +16,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		0146087B50B117F1DD6695EE /* Pods-REEQ_HUD.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-REEQ_HUD.debug.xcconfig"; path = "Pods/Target Support Files/Pods-REEQ_HUD/Pods-REEQ_HUD.debug.xcconfig"; sourceTree = "<group>"; };
+		0DCA6EC92995F781E5A03BC1 /* Pods_REEQ_HUD.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_REEQ_HUD.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		39F368031FAEB5E70020D3BB /* REEQ_HUD.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = REEQ_HUD.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		39F368061FAEB5E70020D3BB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		39F368081FAEB5E70020D3BB /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -22,6 +25,7 @@
 		39F3680D1FAEB5E70020D3BB /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		39F368101FAEB5E70020D3BB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		39F368121FAEB5E70020D3BB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		B8C35084C1A4489AFE1C2133 /* Pods-REEQ_HUD.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-REEQ_HUD.release.xcconfig"; path = "Pods/Target Support Files/Pods-REEQ_HUD/Pods-REEQ_HUD.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -29,17 +33,37 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2465A7CEB137674BE754AD92 /* Pods_REEQ_HUD.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		10BB6866948E0E08CA420D98 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				0146087B50B117F1DD6695EE /* Pods-REEQ_HUD.debug.xcconfig */,
+				B8C35084C1A4489AFE1C2133 /* Pods-REEQ_HUD.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		2AE1EFE84FA6979C0BD42BC5 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				0DCA6EC92995F781E5A03BC1 /* Pods_REEQ_HUD.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		39F367FA1FAEB5E70020D3BB = {
 			isa = PBXGroup;
 			children = (
 				39F368051FAEB5E70020D3BB /* REEQ_HUD */,
 				39F368041FAEB5E70020D3BB /* Products */,
+				10BB6866948E0E08CA420D98 /* Pods */,
+				2AE1EFE84FA6979C0BD42BC5 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -71,9 +95,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 39F368151FAEB5E70020D3BB /* Build configuration list for PBXNativeTarget "REEQ_HUD" */;
 			buildPhases = (
+				C04DE7D3EE3471DA0A42EBE3 /* [CP] Check Pods Manifest.lock */,
 				39F367FF1FAEB5E70020D3BB /* Sources */,
 				39F368001FAEB5E70020D3BB /* Frameworks */,
 				39F368011FAEB5E70020D3BB /* Resources */,
+				C2010EE2A0E7F5E8401370EB /* [CP] Embed Pods Frameworks */,
+				6C24C68D13C2502388D7F858 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -130,6 +157,54 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		6C24C68D13C2502388D7F858 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-REEQ_HUD/Pods-REEQ_HUD-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		C04DE7D3EE3471DA0A42EBE3 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		C2010EE2A0E7F5E8401370EB /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-REEQ_HUD/Pods-REEQ_HUD-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		39F367FF1FAEB5E70020D3BB /* Sources */ = {
@@ -272,6 +347,7 @@
 		};
 		39F368161FAEB5E70020D3BB /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 0146087B50B117F1DD6695EE /* Pods-REEQ_HUD.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -281,12 +357,13 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "com.AtKit.REEQ-HUD";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 2;
 			};
 			name = Debug;
 		};
 		39F368171FAEB5E70020D3BB /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = B8C35084C1A4489AFE1C2133 /* Pods-REEQ_HUD.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -296,7 +373,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "com.AtKit.REEQ-HUD";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 2;
 			};
 			name = Release;
 		};
