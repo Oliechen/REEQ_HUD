@@ -19,6 +19,7 @@ class ViewController: UIViewController, CBCentralManagerDelegate, CBPeripheralDe
     @IBOutlet weak var timeProgressRing: UICircularProgressRingView!
     @IBOutlet weak var countProgressRing: UICircularProgressRingView!
     
+    @IBOutlet weak var btImageView: UIImageView!
     @IBOutlet weak var counterTimerLabel: UILabel!
     @IBOutlet weak var resistRangeLabel: UILabel!
     @IBOutlet weak var resistanceOutlet: CircularSlider!
@@ -56,14 +57,16 @@ class ViewController: UIViewController, CBCentralManagerDelegate, CBPeripheralDe
         countProgressRing.fontColor = UIColor.white
         powerProgressRing.fontColor = UIColor.white
         
+        timeProgressRing.maxValue = 600
         countProgressRing.maxValue = 12
-        powerProgressRing.maxValue = 50
+        powerProgressRing.maxValue = 500
         
         resistanceOutlet.endPointValue = 1
         resistanceOutlet.addTarget(self, action: #selector(updateTexts), for: .valueChanged)
         
         let countDownTimer = Timer.scheduledTimer(timeInterval: 1.0, target: self, selector: #selector(ViewController.updateCounter), userInfo: nil, repeats: true)
-        //var countDownTimer = Timer.scheduledTimer(timeInterval: 1.0, target: self, selector: #selector("update"), userInfo: nil, repeats: true)
+        
+        btImageView.isHidden = true
     
         }
     
@@ -71,6 +74,13 @@ class ViewController: UIViewController, CBCentralManagerDelegate, CBPeripheralDe
     func centralManagerDidUpdateState(_ central: CBCentralManager) {
         if central.state == .poweredOn {
         central.scanForPeripherals(withServices: nil, options: nil)
+        } else {
+            let btMissingAlertController = UIAlertController(title: "藍牙未開啟", message: "請至設定開啟藍牙系統", preferredStyle: UIAlertControllerStyle.alert)
+            
+            btMissingAlertController.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: nil))
+            
+            present(btMissingAlertController, animated: true, completion: nil)
+            
         }
     }
     
@@ -94,6 +104,7 @@ class ViewController: UIViewController, CBCentralManagerDelegate, CBPeripheralDe
         peripheral.delegate = self
         peripheral.discoverServices(nil)
         print("did connect Peripheral devices")
+        btImageView.isHidden = false
     }
     
     //MARK: CBPeripheral Delegate
@@ -185,6 +196,7 @@ class ViewController: UIViewController, CBCentralManagerDelegate, CBPeripheralDe
         
        // countProgressRing.setProgress(value: CGFloat(count), animationDuration: 1)
        // powerProgressRing.setProgress(value:CGFloat(speedPulse4/100), animationDuration: 1)
+        timeProgressRing.setProgress(value: CGFloat(count), animationDuration: 1)
         countProgressRing.setProgress(value:CGFloat(count2), animationDuration: 1)
         powerProgressRing.setProgress(value:CGFloat(power3), animationDuration: 1)
         print("\(startFlag1), \(count2), \(power3), \(speedPulse4), \(maxSpeedCode5), \(checkSumCode6), \(errorCode7)")
@@ -231,13 +243,17 @@ class ViewController: UIViewController, CBCentralManagerDelegate, CBPeripheralDe
     }
     
     @objc func updateCounter() {
-        //you code, this is an example
         if timerCount > 0 {
             print("\(timerCount) seconds to the end of the world")
-            let minutes = String(timerCount / 60)
-            let seconds = String(timerCount % 60)
-            counterTimerLabel.text = minutes + ":" + seconds
+            let minutes = timerCount / 60
+            let seconds = timerCount % 60
+            
+            let secondsString = seconds > 9 ? "\(seconds)" : "0\(seconds)"
+            let minutesString = minutes > 9 ? "\(minutes)" : "0\(minutes)"
+            
+            counterTimerLabel.text = minutesString + ":" + secondsString
             timerCount -= 1
+            print("\(countDownTimer)")
         }
     }
     
